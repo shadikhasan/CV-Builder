@@ -1,0 +1,20 @@
+<!-- cvs/templates/cvs/delete_work_experience.html -->
+
+{% extends 'cvs/base.html' %}
+
+{% block title %}Delete Work Experience - CV Builder{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Delete Work Experience</h2>
+    <hr />
+    <p>Are you sure you want to delete the following work experience?</p>
+    <p><strong>{{ work_experience.job_title }}</strong> at <strong>{{ work_experience.company }}</strong> ({{ work_experience.start_date }} - {{ work_experience.end_date }})</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

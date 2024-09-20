@@ -1,0 +1,20 @@
+<!-- cvs/templates/cvs/delete_skill.html -->
+
+{% extends 'cvs/base.html' %}
+
+{% block title %}Delete Skill - CV Builder{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Delete Skill</h2>
+    <hr />
+    <p>Are you sure you want to delete the following skill?</p>
+    <p><strong>{{ skill.skill_name }}</strong></p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

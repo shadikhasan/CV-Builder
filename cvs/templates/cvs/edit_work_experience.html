@@ -1,0 +1,18 @@
+<!-- cvs/templates/cvs/edit_work_experience.html -->
+
+{% extends 'cvs/base.html' %}
+
+{% block title %}Edit Work Experience - CV Builder{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Edit Work Experience</h2>
+    <hr />
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

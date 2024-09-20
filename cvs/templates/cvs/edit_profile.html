@@ -1,0 +1,17 @@
+{% extends 'cvs/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edit Profile - CV Builder{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Edit Profile</h2>
+    <hr />
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

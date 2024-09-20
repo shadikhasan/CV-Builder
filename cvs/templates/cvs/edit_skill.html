@@ -1,0 +1,18 @@
+<!-- cvs/templates/cvs/edit_skill.html -->
+
+{% extends 'cvs/base.html' %}
+
+{% block title %}Edit Skill - CV Builder{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Edit Skill</h2>
+    <hr />
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

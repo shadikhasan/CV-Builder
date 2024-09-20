@@ -1,0 +1,20 @@
+<!-- cvs/templates/cvs/delete_education.html -->
+
+{% extends 'cvs/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Delete Education - CV Builder{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h2>Delete Education</h2>
+    <hr />
+    <p>Are you sure you want to delete the following education entry?</p>
+    <p><strong>{{ education.degree }}</strong> at <strong>{{ education.institution }}</strong> ({{ education.start_year }} - {{ education.end_year }})</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
