@@ -17,44 +17,52 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'cvs:home' %}">CV Builder</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'cvs:dashboard' %}">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <form action="{% url 'logout' %}" method="post" style="display:inline;">
-              {% csrf_token %}
-              <button type="submit" class="nav-link btn btn-link" style="border: none; background: none; padding: 0;">Logout</button>
-            </form>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'cvs:register' %}">Register</a>
-          </li>
-          {% endif %}
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'cvs:home' %}">
+          CV Builder
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome, {{ user.username }}
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'cvs:dashboard' %}">Dashboard</a>
+                <div class="dropdown-divider"></div>
+                <form action="{% url 'logout' %}" method="post" class="dropdown-item p-0 m-0">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-link text-danger">Logout</button>
+                </form>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cvs:register' %}">Register</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
-      
-      
     </nav>
+    
+    
 
     <!-- Messages -->
     <div class="container mt-3">

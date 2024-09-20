@@ -11,6 +11,7 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=15)
     address = models.TextField(blank=True)
     career_objective = models.TextField(blank=True)  # Add career objective
+    image = models.ImageField(upload_to='profile_pics/', blank=True, null=True)  # Image field for file upload
 
     def __str__(self):
         return self.full_name

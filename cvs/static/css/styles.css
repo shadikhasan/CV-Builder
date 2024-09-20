@@ -12,7 +12,135 @@ h5,
 h6 {
   color: #343a40;
 }
+.navbar {
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #0056b3 !important; /* Change link hover color */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.footer {
+  border-top: 1px solid #ddd;
+}
+
+.container {
+  max-width: 960px;
+}
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+}
+
+.btn-success:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #6c757d;
+}
+input,
+textarea {
+  border-radius: 5px;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+/* Base styles */
+body {
+  background-color: #f4f4f9;
+}
+
+/* Navbar styles */
+.navbar {
+  font-size: 1.1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+}
+
 .nav-link {
-  display: inline-flex;
-  align-items: center;
+  color: #fff !important;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #00b4d8 !important; /* Hover color for links */
+}
+
+.dropdown-menu {
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown menu styles */
+.dropdown-menu a:hover {
+  background-color: #e9ecef;
+}
+
+.dropdown-item .btn-link {
+  padding: 0;
+  color: #dc3545;
+  text-align: left;
+}
+
+.dropdown-item .btn-link:hover {
+  color: #ff6347;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #343a40;
+  color: #adb5bd;
+  padding: 1rem 0;
+}
+
+.footer span {
+  color: #adb5bd;
+}
+
+/* Add this to your static CSS file to further enhance the design */
+
+/* Style for card headers */
+.card-header {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Buttons hover effects */
+.btn:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+/* Adding box-shadow to buttons for a better look */
+.btn {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect on list-group items */
+.list-group-item {
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
 }

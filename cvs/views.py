@@ -57,16 +57,18 @@ def dashboard(request):
 # Profile Management
 @login_required
 def edit_profile(request):
-    profile, created = Profile.objects.get_or_create(user=request.user)
+    profile = get_object_or_404(Profile, user=request.user)
+    
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=profile)
+        form = ProfileForm(request.POST, request.FILES, instance=profile)  # Handle file uploads
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully.')
             return redirect('cvs:dashboard')
     else:
         form = ProfileForm(instance=profile)
+
     return render(request, 'cvs/edit_profile.html', {'form': form})
+
 
 # Education Management
 @login_required

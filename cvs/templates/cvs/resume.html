@@ -58,13 +58,42 @@
             background-color: #4CAF50;
             width: 80%; /* Adjust width based on skill proficiency */
         }
+        /* Button styling */
+         /* Button styling */
+        .btn {
+            position: fixed; /* Fixed position for stickiness */
+            bottom: 20px; /* Distance from the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Offset for exact centering */
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .mt-4 {
+            margin-top: 20px; /* Margin for top spacing */
+        }
     </style>
 </head>
 <body>
+    {% load static %}
+    <div class="mt-4 text-center">
+        <a href="{% url 'cvs:dashboard' %}" class="btn">Back to Dashboard</a>
+    </div>
+    
     <div class="container">
         <div class="header">
-            <img src="{{ profile.image_url }}" alt="{{ profile.full_name }}'s Photo">
-            <div>
+            {% if profile.image %}
+            <img src="{{ profile.image.url }}" alt="{{ profile.full_name }}'s Photo">
+        {% else %}
+            <img src="{% static 'default/default_img.png' %}" alt="Default Profile Photo">
+        {% endif %}
+        <div>
                 <h1>{{ profile.full_name }}</h1>
                 <p>{{ profile.job_title }}</p>
                 <p>Email: {{ profile.contact_email }}</p>

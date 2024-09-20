@@ -7,11 +7,39 @@
 <div class="mt-4">
     <h2>Edit Profile</h2>
     <hr />
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-success">Save Changes</button>
-        <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
-    </form>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Check if the user has uploaded a profile picture -->
+            <div id="profile-picture-container">
+                {% if form.instance.image %}
+                    <img id="profile-picture" src="{{ form.instance.image.url }}" alt="Profile Picture" class="img-fluid img-thumbnail" />
+                {% else %}
+                    <p>No profile picture available.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-9">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Save Changes</button>
+                <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.getElementById('id_image').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profile-picture').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
 {% endblock %}
