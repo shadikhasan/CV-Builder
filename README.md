@@ -1,3 +1,11 @@
+
+![Screenshot (21)](https://github.com/user-attachments/assets/a03346e8-76e3-4e42-96d8-38e3edf90f84)
+![Screenshot (22)](https://github.com/user-attachments/assets/82f3dd3f-c78c-45f3-94c4-ad63f76b8ac9)
+![Screenshot (23)](https://github.com/user-attachments/assets/ab887227-3ddb-4d66-aa7f-6a8f2df2bb8c)
+![Screenshot (24)](https://github.com/user-attachments/assets/c3d6ac0b-ebd4-4d67-ae9c-0fd9d8af44f2)
+![Screenshot (25)](https://github.com/user-attachments/assets/e6131761-45f0-49c3-b1a0-79d61ae99ab7)
+![Screenshot (26)](https://github.com/user-attachments/assets/480e3a08-001b-4b66-9bab-36b27d4da2cd)
+
 # 1. Initial Setup
 
 ## Prerequisites
@@ -16,8 +24,8 @@ Make sure you have the following installed:
 First, clone the repository to your local machine and navigate to the project directory:
 
 ```
-https://github.com/shadikhasan/django_starter_template2.git
-cd django_starter_template2
+git clone https://github.com/shadikhasan/CV-Builder-Django.git
+cd CV Builder Django
 ```
 
 ### 2. Create a Virtual Environment
