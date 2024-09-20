@@ -199,3 +199,18 @@ def download_cv(request):
     # Implementation for PDF generation (covered in a later step)
     return HttpResponse ("<h1>Coming soon..</h1>")
     pass
+
+@login_required
+def resume_view(request):
+    profile = Profile.objects.get(user=request.user)
+    educations = Education.objects.filter(profile=profile)
+    work_experiences = WorkExperience.objects.filter(profile=profile)
+    skills = Skill.objects.filter(profile=profile)
+
+    context = {
+        'profile': profile,
+        'educations': educations,
+        'work_experiences': work_experiences,
+        'skills': skills
+    }
+    return render(request, 'cvs/resume.html', context)

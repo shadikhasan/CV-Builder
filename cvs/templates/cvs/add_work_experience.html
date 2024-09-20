@@ -1,5 +1,3 @@
-<!-- cvs/templates/cvs/add_work_experience.html -->
-
 {% extends 'cvs/base.html' %}
 
 {% block title %}Add Work Experience - CV Builder{% endblock %}
@@ -15,4 +13,20 @@
         <a href="{% url 'cvs:dashboard' %}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
+
+<!-- Add Flatpickr CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script type="text/javascript">
+    flatpickr("#id_start_date", {
+        dateFormat: "Y-m-d",
+        allowInput: true
+    });
+    flatpickr("#id_end_date", {
+        dateFormat: "Y-m-d",
+        allowInput: true,
+        defaultDate: null
+    });
+</script>
 {% endblock %}

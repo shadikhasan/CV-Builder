@@ -1,0 +1,115 @@
+<!-- cvs/templates/cvs/resume.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.full_name }} - Resume</title>
+    <style>
+        /* Styling similar to your example */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+        }
+        .header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .section h2 {
+            font-size: 24px;
+            border-bottom: 2px solid #333;
+        }
+        .education-item, .work-item, .skill-item {
+            margin-bottom: 15px;
+        }
+        .skills-bar {
+            background-color: #e0e0e0;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+        .skills-bar-inner {
+            height: 20px;
+            background-color: #4CAF50;
+            width: 80%; /* Adjust width based on skill proficiency */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ profile.image_url }}" alt="{{ profile.full_name }}'s Photo">
+            <div>
+                <h1>{{ profile.full_name }}</h1>
+                <p>{{ profile.job_title }}</p>
+                <p>Email: {{ profile.contact_email }}</p>
+                <p>Phone: {{ profile.phone_number }}</p>
+                <p>Address: {{ profile.address }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Career Objective</h2>
+            <p>{{ profile.career_objective }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            {% for edu in educations %}
+            <div class="education-item">
+                <p><strong>{{ edu.degree }}</strong> from {{ edu.institution }}</p>
+                <p>Passing Year: {{ edu.end_year }} | GPA: {{ edu.gpa }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2>Working Experience</h2>
+            {% for work in work_experiences %}
+            <div class="work-item">
+                <p><strong>{{ work.job_title }}</strong> at {{ work.company }}</p>
+                <p>{{ work.start_date }} - {{ work.end_date|default:"Present" }}</p>
+                <p>{{ work.responsibilities }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            {% for skill in skills %}
+            <div class="skill-item">
+                <p>{{ skill.skill_name }}</p>
+                <div class="skills-bar">
+                    <div class="skills-bar-inner" style="width: {{ skill.proficiency|default:"80" }}%;"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
