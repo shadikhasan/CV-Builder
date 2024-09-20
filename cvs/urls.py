@@ -8,7 +8,6 @@ urlpatterns = [
     path('', views.home, name='home'),  # Keep this one
     
     path('resume/', views.resume_view, name='resume'),
-    
     # User Registration
     path('accounts/register/', views.register, name='register'),
 

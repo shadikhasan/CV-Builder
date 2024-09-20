@@ -195,14 +195,9 @@ def preview_cv(request):
     }
     return render(request, 'cvs/preview_cv.html', context)
 
-# CV Download as PDF
-@login_required
-def download_cv(request):
-    # Implementation for PDF generation (covered in a later step)
-    return HttpResponse ("<h1>Coming soon..</h1>")
-    pass
 
-@login_required
+
+# @login_required
 def resume_view(request):
     profile = Profile.objects.get(user=request.user)
     educations = Education.objects.filter(profile=profile)
@@ -216,3 +211,14 @@ def resume_view(request):
         'skills': skills
     }
     return render(request, 'cvs/resume.html', context)
+
+# CV Download as PDF
+@login_required
+def download_cv(request):
+    # Placeholder response for the backend PDF logic
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        # This response is sent when triggered via AJAX
+        return HttpResponse(status=200)  # Success response
+    else:
+        return HttpResponse("<h1>Coming soon..</h1>")
+
